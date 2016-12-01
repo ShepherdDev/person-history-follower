@@ -18,8 +18,8 @@ namespace com.shepherdchurch.PersonHistoryFollower
     [Export( typeof( EventComponent ) )]
     [ExportMetadata( "ComponentName", "PersonHistory" )]
 
-    [IntegerField( "Max Days Back", "Maximum number of days back to consider", true, 30, "", order: 1 )]
-    [TextField( "Attributes", "Field name(s) to monitor in history data. Seperate multiple items by a comma", true, order: 0 )]
+    [TextField( "Fields", "Field name(s) to monitor in history data. Seperate multiple items by a comma. If you look at a person's history data it would be in the format of 'Modified FIELD value from OLD to NEW'.", true, order: 0 )]
+    [IntegerField( "Max Days Back", "Maximum number of days back to look at a person's history.", true, 30, "", order: 1 )]
 
     [BooleanField( "Match Both", "Require a match on both the Old Value and the New Value. This equates to an AND comparison, otherwise it equates to an OR comparison on the values.", true, category: "Values", order: 0 )]
     [TextField( "Old Value", "Value to be matched as the old value or leave blank to match any old value.", false, category: "Values", order: 1 )]
