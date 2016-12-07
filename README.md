@@ -21,6 +21,12 @@ for that. But sometimes people change it by accident and then
 change it right back, you probably don't care about that status
 change because it didn't really change.
 
+>Note: In the case of a value changing from `A to B to A` then
+>that change will be ignored. If it changes from
+>`A to B to C to A` then that will still match and be notified.
+>
+>Please keep this in mind when trying to test your settings.
+
 ### Examples
 
 These examples are not 100% real world. People do not Follow the

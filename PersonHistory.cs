@@ -58,7 +58,7 @@ namespace com.shepherdchurch.PersonHistoryFollower
                     string targetPersonGuid = GetAttributeValue( followingEvent, "Person" );
                     bool negateChangedBy = GetAttributeValue( followingEvent, "NegatePerson" ).AsBoolean();
                     bool matchBothValues = GetAttributeValue( followingEvent, "MatchBoth" ).AsBoolean();
-                    var attributes = GetAttributeValue( followingEvent, "Attributes" ).Split( ',' ).Select( a => a.Trim() );
+                    var attributes = GetAttributeValue( followingEvent, "Fields" ).Split( ',' ).Select( a => a.Trim() );
 
                     //
                     // Populate all the other random variables we need for processing.
@@ -146,9 +146,14 @@ namespace com.shepherdchurch.PersonHistoryFollower
                                 //
                                 // If the value has been changed back to what it was then ignore the change.
                                 //
-                                if ( changes[attribute].First().Old == changes[attribute].Last().New )
+                                if ( changes[attribute].Count >= 2 )
                                 {
-                                    changes.Remove( title );
+                                    var changesList = changes[attribute].ToList();
+                                    
+                                    if (changesList[changesList.Count - 2].Old == changesList[changesList.Count - 1].New )
+                                    {
+                                        changes.Remove( title );
+                                    }
                                 }
                             }
                         }
