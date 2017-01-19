@@ -1,4 +1,15 @@
-﻿### Operation
+﻿## Person History Follower
+
+This plugin implements a new Following Event Type that uses the
+information recorded in Person History to detect changes to a
+person's properties or attributes. This will allow you to detect and
+flag changes on a person's `Membership Status`, `Marital Status`,
+`First Name`, `Last Name`, and many others. As with other Following
+Event Types you may configure as many specific Events that your
+users can subscribe to. When a specific Event is detected they will
+receive an e-mail informing them about that event occurring.
+
+### Operation
 
 Let's talk about how this works a little bit. Because Rock stores
 history data as a text string, scraping this kind of information is
